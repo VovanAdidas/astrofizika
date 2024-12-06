@@ -1,33 +1,42 @@
+/* Стили для первого блока */
 .frame-child {
   	position: absolute;
   	top: 48px;
-  	left: 1183px;
-  	border-radius: 25px;
-  	background-color: #48acd7;
-  	width: 144px;
-  	height: 43px;
+  	left: 1163px;  /* Позиционируем блок с отступом слева */
+  	border-radius: 25px;  /* Скругление углов */
+  	background-color: #48acd7;  /* Цвет фона */
+  	width: 90px;  /* Ширина блока */
+  	height: 30px;  /* Высота блока */
 }
+
+/* Стили для второго блока, сдвинутого вправо */
 .frame-inner {
   	position: absolute;
   	top: 48px;
-  	left: 1337px;
+  	left: 1303px;  /* Сдвиг на 35px вправо */
   	border-radius: 25px;
   	background-color: #48acd7;
-  	width: 72px;
-  	height: 43px;
+  	width: 60px;
+  	height: 30px;
 }
+
+/* Стили для изображения с фреймом */
 .frame-icon {
   	position: absolute;
   	top: 0px;
   	left: 0px;
-  	width: 618px;
-  	height: 900px;
-  	overflow: hidden;
-  	object-fit: cover;
+  	width: 618px;  /* Ширина изображения */
+  	height: 900px;  /* Высота изображения */
+  	overflow: hidden;  /* Обрезать всё, что выходит за пределы */
+  	object-fit: cover;  /* Заполнение контейнера изображением без искажений */
 }
+
+/* Сброс отступов для текста */
 .p {
   	margin: 0;
 }
+
+/* Стили для блока с текстом "Астрофизика для детей" */
 .div {
   	position: absolute;
   	top: 0px;
@@ -36,58 +45,108 @@
   	width: 304px;
   	height: 117px;
 }
+
+/* Стили для обертки текста с синим цветом */
 .wrapper {
   	position: absolute;
   	top: 48px;
-  	left: 732px;
+  	left: 732px;  /* Позиционирование относительно родительского контейнера */
   	width: 304px;
   	height: 117px;
-  	text-align: left;
-  	font-size: 52px;
-  	color: #2665ee;
+  	text-align: left;  /* Выравнивание текста по левому краю */
+  	font-size: 52px;  /* Размер шрифта */
+  	color: #2665ee;  /* Синий цвет текста */
 }
+
+/* Стили для кнопок-переходов */
 .div1 {
   	position: relative;
+  	background-color: #48acd7;  /* Цвет фона кнопки */
+  	color: white;  /* Белый текст */
+  	text-align: center;
+  	padding: 15px;  /* Отступы внутри кнопки */
+  	width: 100%;
+  	border-radius: 25px;  /* Скругление углов кнопки */
+  	cursor: pointer;  /* Указатель курсора при наведении */
+  	font-size: 20px;
+  	transition: background-color 0.3s;  /* Плавное изменение фона при наведении */
 }
+
+/* Эффект при наведении на кнопку */
+.div1:hover {
+  	background-color: #3a94b8;  /* Меняется цвет фона */
+}
+
+/* Стили для контейнера с кнопками */
 .parent {
   	position: absolute;
   	top: 47px;
-  	left: 1163px;
-  	display: flex;
+  	left: 1163px;  /* Позиционирование кнопок */
+  	display: flex;  /* Расположение элементов в строку */
   	flex-direction: row;
-  	align-items: flex-end;
-  	justify-content: center;
+  	align-items: center;
+  	justify-content: space-between;
   	padding: 10px 20px;
-  	gap: 10px;
+  	gap: 35px;  /* Расстояние между кнопками */
 }
+
+/* Описание сайта с переносом строк */
 .div3 {
   	position: absolute;
   	top: 334px;
   	left: 701px;
-  	white-space: pre-wrap;
+  	white-space: pre-wrap;  /* Перенос текста, учитывая пробелы и новые строки */
   	display: inline-block;
   	width: 708px;
   	height: 208px;
 }
+
+/* Стили для текста "О нас" */
 .div4 {
   	position: absolute;
   	top: 235px;
   	left: 929px;
-  	font-size: 72px;
+  	font-size: 72px;  /* Размер шрифта */
   	display: inline-block;
   	width: 251px;
   	height: 70px;
+  	background-color: transparent;  /* Прозрачный фон */
+  	color: #000;  /* Черный текст */
+  	text-align: center;  /* Центрирование текста */
+  	padding: 15px;  /* Отступы внутри блока */
+  	border-radius: 25px;  /* Скругление углов */
+  	cursor: default;  /* Курсор по умолчанию */
 }
+
+/* Основной контейнер страницы */
 .rectangle-parent {
   	width: 100%;
   	position: relative;
-  	background-color: #8f99d7;
+  	background-color: #8f99d7;  /* Цвет фона контейнера */
   	height: 900px;
-  	overflow: hidden;
+  	overflow: hidden;  /* Обрезать элементы, выходящие за пределы */
   	text-align: center;
   	font-size: 24px;
   	color: #000;
-  	font-family: 'Ubuntu Mono';
+  	font-family: 'Ubuntu Mono';  /* Шрифт */
 }
 
+/* Удаление подчеркивания для ссылок на кнопки */
+.button-link {
+  	text-decoration: none;
+}
+
+/* Установка z-index для кнопок, чтобы текст был поверх */
+.div1 {
+  	position: relative;
+  	z-index: 1;
+}
+
+/* Стили для канваса миссии Луны (если используется в проекте) */
+#moonMissionCanvas {
+    border: 2px solid #333;  /* Окружение канваса рамкой */
+    background-color: #000;  /* Черный фон */
+    margin: 20px auto;  /* Отступы сверху и снизу, выравнивание по центру */
+    display: block;  /* Канвас ведет себя как блоковый элемент */
+}
 

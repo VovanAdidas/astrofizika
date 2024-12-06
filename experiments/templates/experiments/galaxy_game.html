@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    
+    <!-- Подключение внешних стилей -->
+    <link rel="stylesheet" href="{% static 'experiments/galaxy_game.css' %}" />
+    <!-- Подключение шрифта из Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400&display=swap" />
+</head>
+<body>
+    <!-- Контейнер для всей страницы -->
+    <div class="rectangle-parent">
+        
+        <!-- Заголовок викторины -->
+        <div class="wrapper">
+            <div class="div">
+                <p class="p">Викторина по планетам</p>
+            </div>
+        </div>
+
+        <!-- Контейнер для вопроса и информации о планете -->
+        <div id="question-container">
+            <!-- Информация о планете -->
+            <div id="planet-info">
+                <p id="planet-name">Планета: Земля</p>
+                <p id="planet-description">Земля — третья планета от Солнца и единственная известная планета, на которой существует жизнь.</p>
+            </div>
+            
+            <!-- Место для отображения вопроса -->
+            <div id="question">
+            </div>
+
+            <!-- Контейнер для кнопок ответов -->
+            <div id="answer-buttons">
+            </div>
+        </div>
+
+        <!-- Контейнер для отображения счета -->
+        <div id="score-container">
+            Баллы: <span id="score">0</span>
+        </div>
+
+        <!-- Контейнер для кнопок управления игрой -->
+        <div class="game-buttons">
+            <button id="next-button">Следующий вопрос</button> <!-- Кнопка для перехода к следующему вопросу -->
+            <button id="restart-button">Перезапустить</button> <!-- Кнопка для перезапуска игры -->
+        </div>
+    </div>
+
+    <!-- Подключение скрипта для викторины -->
+    <script src="{% static 'experiments/galaxy_game.js' %}"></script>
+</body>
+</html>
+

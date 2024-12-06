@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="{% static 'experiments/solar_system.css' %}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400&display=swap" />
+</head>
+<body>
+    <div class="rectangle-parent">
+        <!-- Заголовок путеводителя -->
+        <div class="wrapper">
+            <div class="div">
+                <p class="p">Путеводитель по</p>
+                <p class="p">Солнечной системе</p>
+            </div>
+        </div>
+
+        <!-- Солнечная система с планетами -->
+        <div class="solar-system">
+            <div class="planet" id="mercury" onclick="showInfo('Mercury')"></div>
+            <div class="planet" id="venus" onclick="showInfo('Venus')"></div>
+            <div class="planet" id="earth" onclick="showInfo('Earth')"></div>
+            <div class="planet" id="mars" onclick="showInfo('Mars')"></div>
+            <div class="planet" id="jupiter" onclick="showInfo('Jupiter')"></div>
+            <div class="planet" id="saturn" onclick="showInfo('Saturn')"></div>
+            <div class="planet" id="uranus" onclick="showInfo('Uranus')"></div>
+            <div class="planet" id="neptune" onclick="showInfo('Neptune')"></div>
+        </div>
+
+        <!-- Информация о планете -->
+        <div id="planet-info" class="planet-info">
+            <h2>Выберите планету</h2>
+            <p>Кликните на планету, чтобы узнать больше о ней.</p>
+        </div>
+    </div>
+
+    <!-- Подключение скрипта для планет -->
+    <script src="{% static 'experiments/solar_system.js' %}"></script>
+</body>
+</html>
+
