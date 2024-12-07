@@ -1,20 +1,38 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'experiments/contact.css' %}" />
+    <script>
+      // Функция для обработки перехода по ссылкам без анимации и задержки
+      document.addEventListener('DOMContentLoaded', function () {
+        const links = document.querySelectorAll('.link');
 
+        links.forEach(function (link) {
+          link.addEventListener('click', function (event) {
+            event.preventDefault(); // Останавливаем стандартный переход по ссылке
+            const targetUrl = link.getAttribute('href'); // Получаем URL назначения
+
+            // Мгновенно переходим по ссылке
+            window.location.href = targetUrl;
+          });
+        });
+      });
+    </script>
   </head>
   <body>
     <div class="frame">
       <div class="div">
-        <div class="text-wrapper">All rights reserved</div>
-        <div class="text-wrapper-2">mail: yourmail@gmail.com</div>
-        <div class="overlap-group">
-          <div class="text-wrapper-3">домашняя страница</div>
-          <div class="text-wrapper-4">эксперименты</div>
-          <div class="text-wrapper-5">статьи</div>
+        <div class="content-wrapper">
+          <div class="text-wrapper-2">mail: yourmail@gmail.com</div>
+          <div class="links-wrapper">
+            <a href="/" class="link">Главная страница</a> <!-- Ссылка на главную страницу -->
+            <a href="/system" class="link">Путеводитель по солнечной системе</a> <!-- Ссылка на "Солнечная система" -->
+            <a href="/game" class="link">Викторина по планетам</a> <!-- Ссылка на "Викторина" -->
+          </div>
+          <div class="text-wrapper">All rights reserved</div>
         </div>
       </div>
     </div>
