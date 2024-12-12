@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'experiments/auth.css' %}" />
+    <title>Авторизация</title>
+</head>
+<body>
+    <div class="rectangle-parent">
+        <div class="form-container">
+            <h1>Авторизация</h1>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Имя пользователя:</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <button type="submit" class="oval-button smaller-button">Войти</button>
+            </form>
+            <p class="register-link">Нет аккаунта? 
+                <a href="/register/" class="oval-button smaller-button">Регистрация</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
