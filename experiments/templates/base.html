@@ -1,0 +1,59 @@
+<!-- experiments/templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Астрофизика для детей{% endblock %}</title>
+    
+    <!-- Подключение базовых стилей -->
+    <link rel="stylesheet" href="{% static 'experiments/css/base.css' %}" />
+    
+    <!-- Блок для дополнительных стилей на отдельных страницах -->
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'index' %}" class="nav-link">Главная</a></li>
+            <li><a href="{% url 'contact' %}" class="nav-link">Контакты</a></li>
+            <li><a href="{% url 'galaxy_game' %}" class="nav-link">Викторина</a></li>
+            <li><a href="{% url 'solar_system' %}" class="nav-link">Солнечная система</a></li>
+            {% if user.is_authenticated %}
+            <li>
+                <!-- Форма для выхода из системы -->
+                <form method="post" action="{% url 'logout' %}" class="nav-form">
+                    {% csrf_token %}
+                    <button type="submit" class="button nav-button">Выйти</button>
+                </form>
+            </li>
+            {% else %}
+            <li>
+                <!-- Ссылка для входа в систему -->
+                <a href="{% url 'login_register' %}" class="button nav-button">Войти</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- Отображение сообщений Django -->
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Основное содержимое страницы -->
+    <div class="main-container">
+        {% block content %}{% endblock %}
+    </div>
+    
+    <!-- Блок для дополнительных скриптов на отдельных страницах -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
+

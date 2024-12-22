@@ -1,0 +1,63 @@
+/* experiments/static/experiments/css/index.css */
+
+/* Главная секция */
+#home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--background-color); /* Используем цвет вместо фонового изображения */
+    text-align: center;
+}
+
+/* Заголовок главной страницы */
+.header p {
+    font-size: 36px;
+    margin: 10px 0;
+    color: var(--text-dark-color);
+}
+
+/* Контейнер для кнопок на главной странице */
+.buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Расстояние между кнопками */
+}
+
+/* Кнопки на главной странице */
+.main-button {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 50px; /* Полностью закругленные кнопки */
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 250px;
+    height: 60px;
+    font-family: var(--font-family); /* Единый шрифт */
+}
+
+.main-button:hover, .main-button:focus {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+}
+
+/* Плавная прокрутка */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 768px) {
+    .main-button {
+        width: 200px;
+        height: 50px;
+        font-size: 16px;
+    }
+}
+

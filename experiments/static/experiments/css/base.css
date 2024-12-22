@@ -1,0 +1,228 @@
+/* experiments/static/experiments/css/base.css */
+
+/* Определение CSS-переменных для единообразия стилей */
+:root {
+    --background-color: #8f99d7; /* Фон всех страниц */
+    --button-color: #48acd7; /* Цвет кнопок */
+    --button-hover-color: #3a99c7; /* Цвет кнопок при наведении */
+    --text-color: #ffffff; /* Белый текст */
+    --text-dark-color: #000000; /* Черный текст */
+    --font-family: 'Roboto', sans-serif; /* Единый шрифт */
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для элементов */
+}
+
+/* Общие стили для всего документа */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    font-family: var(--font-family);
+    color: var(--text-color);
+}
+
+/* Стилизация ссылок по умолчанию */
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: normal; /* Убираем жирность по умолчанию */
+}
+
+a:hover, a:focus {
+    color: var(--button-hover-color);
+}
+
+/* Стили для общих кнопок */
+.button {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px; /* Полностью закругленные кнопки */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-family); /* Обеспечиваем единый шрифт */
+    text-align: center; /* Центрируем текст */
+    display: inline-block; /* Для ссылок */
+    width: auto; /* Автоматическая ширина */
+    height: auto; /* Автоматическая высота */
+    min-width: 150px; /* Минимальная ширина */
+    min-height: 40px; /* Минимальная высота */
+    font-weight: normal; /* Убираем жирность для всех кнопок */
+}
+
+/* Кнопки навигационной панели */
+.nav-button {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    padding: 6px 12px; /* Уменьшенные отступы */
+    font-size: 14px; /* Уменьшенный размер шрифта */
+    border-radius: 12px; /* Умеренно закругленные края */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 0; /* Убираем дополнительные отступы */
+    font-weight: normal; /* Убираем жирность */
+}
+
+.nav-button:hover, .nav-button:focus {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+    color: var(--text-color); /* Сохраняем белый цвет текста при наведении */
+}
+
+/* Кнопки в формах авторизации и регистрации */
+.button.form-button {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 100%;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: normal; /* Убираем жирность */
+}
+
+.button.form-button:hover, .button.form-button:focus {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+    color: var(--text-color); /* Сохраняем белый цвет текста при наведении */
+}
+
+/* Убираем прозрачность текста при наведении на кнопки в формах */
+.register-link a.button.form-button,
+.auth-container .form-container a.button.form-button {
+    color: var(--text-color); /* Белый текст */
+    background-color: var(--button-color); /* Цвет кнопки */
+}
+
+.register-link a.button.form-button:hover,
+.auth-container .form-container a.button.form-button:hover {
+    color: var(--text-color); /* Белый текст при наведении */
+    background-color: var(--button-hover-color); /* Меняем фон при наведении */
+}
+
+/* Убираем псевдоэлемент ::after, чтобы текст не исчезал */
+.button.form-button:hover::after,
+.nav-button:hover::after {
+    content: none; /* Убираем псевдоэлемент */
+}
+
+/* Навигационная панель */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    box-shadow: var(--shadow);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-size: 18px;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--button-hover-color);
+}
+
+/* Основной контейнер контента */
+.main-container {
+    padding: 20px;
+}
+
+/* Стилизация сообщений Django */
+.messages {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.message {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Стилизация модальных окон */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    margin: 15% auto; /* Центрирование модального окна */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px; /* Максимальная ширина */
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
+
+    .main-button {
+        width: 200px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    .nav-button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .button.form-button {
+        font-size: 14px;
+    }
+}
+

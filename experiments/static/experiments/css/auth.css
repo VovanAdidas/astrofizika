@@ -1,0 +1,116 @@
+/* experiments/static/experiments/css/auth.css */
+
+/* Основной контейнер страницы авторизации и регистрации */
+.auth-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color);
+    padding: 20px;
+    text-align: center;
+    min-height: 100vh;
+}
+
+/* Контейнер формы */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    width: 350px;
+    text-align: left;
+}
+
+/* Заголовок формы */
+.form-container h1 {
+    font-size: 24px;
+    color: var(--text-dark-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Стили для кнопок "Войти" и "Зарегистрироваться" */
+.form-container .button.form-button {
+    width: 100%;
+    padding: 10px 0; /* Более крупные кнопки */
+    font-size: 16px; /* Размер текста совпадает с base.css */
+    border-radius: 12px; /* Умеренно закругленные края */
+    font-family: var(--font-family); /* Единый шрифт */
+    margin-top: 10px; /* Отступ сверху для отделения от полей формы */
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.form-container .button.form-button:hover,
+.form-container .button.form-button:focus {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+}
+
+/* Стили для ссылок на регистрацию и вход */
+.register-link {
+    color: var(--text-dark-color); /* Черный цвет текста */
+}
+
+.register-link a.button.form-button {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    color: var(--text-color); /* Черный цвет текста ссылок */
+    background-color: var(--button-color); /* Используем цвет кнопки для консистентности */
+    border: none; /* Убираем границу */
+    padding: 10px 0; /* Добавляем отступы для кликабельной области */
+    cursor: pointer; /* Курсор указателя */
+    font-size: 16px; /* Совпадает с кнопками */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 12px; /* Умеренно закругленные края */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.register-link a.button.form-button:hover,
+.register-link a.button.form-button:focus {
+    background-color: var(--button-hover-color); /* Меняем фон при наведении */
+    transform: scale(1.05); /* Эффект масштабирования */
+}
+
+/* Стилизация полей формы */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-dark-color);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--button-color);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--button-hover-color);
+    outline: none;
+}
+
+/* Стилизация сообщений об ошибках */
+.error-message {
+    color: #e74c3c; /* Красный цвет для ошибок */
+    font-size: 14px;
+    margin-top: 5px;
+}
+

@@ -1,0 +1,95 @@
+/* experiments/static/experiments/css/galaxy_game.css */
+
+/* Подключение базовых стилей */
+@import url('base.css');
+
+/* Контейнер для викторины */
+.quiz-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    max-width: 700px;
+    margin: 50px auto;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Заголовок викторины */
+.quiz-header p {
+    font-size: 28px;
+    color: var(--text-dark-color);
+    margin-bottom: 20px;
+}
+
+/* Информация о планете */
+#planet-info {
+    margin-bottom: 20px;
+}
+
+#planet-info h3 {
+    font-size: 20px;
+    color: var(--text-dark-color);
+}
+
+#planet-info p {
+    font-size: 16px;
+    color: var(--text-dark-color);
+}
+
+/* Вопрос викторины */
+#question {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--text-dark-color);
+}
+
+/* Кнопки ответов */
+#answer-buttons .button {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 50px; /* Полностью закругленные кнопки */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 200px;
+}
+
+#answer-buttons .button:hover, #answer-buttons .button:focus {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+}
+
+/* Счетчик */
+#score-container {
+    margin-top: 20px;
+    font-size: 18px;
+    color: var(--text-dark-color);
+}
+
+/* Кнопки игры */
+.game-buttons {
+    margin-top: 20px;
+}
+
+.game-buttons .button {
+    width: 150px;
+    padding: 10px 0;
+    font-size: 16px;
+    border-radius: 50px; /* Полностью закругленные кнопки */
+}
+
+/* Модальное окно результатов */
+.modal-content h2 {
+    font-size: 24px;
+    color: var(--text-dark-color);
+}
+
+.modal-content p {
+    font-size: 18px;
+    color: var(--text-dark-color);
+}
+

@@ -1,17 +1,15 @@
-# urls.py
+# experiments/urls.py
+
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'), 
-    path('system/', views.solar_system, name='solar_system'),
-    path('contact/', views.contact, name='contact'),
-    path('game/', views.galaxy_game, name='galaxy_game'),
-    path('login/', views.login_register, name='login_register'),
-    path('register/', views.register, name='register'),  # Новый маршрут для регистрации
-    path('logout/', views.logout_user, name='logout'),  # Новый маршрут для выхода
-    path('paint_planet/', views.paint_planet, name='paint_planet'),  # Страница для рисования планеты
-    path('save_planet/', views.save_planet, name='save_planet'),  # Маршрут для сохранения планеты
-    path('download_planet/<str:file_name>/', views.download_planet, name='download_planet'),  # Маршрут для скачивания
+    path('', views.index, name='index'),  # Главная страница
+    path('login/', views.login_register_view, name='login_register'),  # Страница логина
+    path('register/', views.register_view, name='register'),  # Страница регистрации
+    path('logout/', views.logout_view, name='logout'),  # Выход из системы
+    path('contact/', views.contact_view, name='contact'),  # Страница контактов
+    path('galaxy-game/', views.galaxy_game_view, name='galaxy_game'),  # Викторина
+    path('solar-system/', views.solar_system_view, name='solar_system'),  # Солнечная система
 ]
 

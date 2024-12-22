@@ -1,41 +1,46 @@
+<!-- experiments/templates/experiments/contact.html -->
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'experiments/contact.css' %}" />
-    <script>
-      // Функция для обработки перехода по ссылкам без анимации и задержки
-      document.addEventListener('DOMContentLoaded', function () {
-        const links = document.querySelectorAll('.link');
 
-        links.forEach(function (link) {
-          link.addEventListener('click', function (event) {
-            event.preventDefault(); // Останавливаем стандартный переход по ссылке
-            const targetUrl = link.getAttribute('href'); // Получаем URL назначения
+{% block extra_head %}
+<!-- Подключение стилей для страницы контактов -->
+<link rel="stylesheet" href="{% static 'experiments/css/contact.css' %}" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<title>Контакты</title>
+{% endblock %}
 
-            // Мгновенно переходим по ссылке
-            window.location.href = targetUrl;
-          });
-        });
-      });
-    </script>
-  </head>
-  <body>
-    <div class="frame">
-      <div class="div">
-        <div class="content-wrapper">
-          <div class="text-wrapper-2">mail: yourmail@gmail.com</div>
-          <div class="links-wrapper">
-            <a href="/" class="link">Главная страница</a> <!-- Ссылка на главную страницу -->
-            <a href="/system" class="link">Путеводитель по солнечной системе</a> <!-- Ссылка на "Солнечная система" -->
-            <a href="/game" class="link">Викторина по планетам</a> <!-- Ссылка на "Викторина" -->
-          </div>
-          <div class="text-wrapper">All rights reserved</div>
-        </div>
-      </div>
+{% block content %}
+<!-- Контейнер для страницы контактов -->
+<section id="contact" class="section">
+    <div class="contact-container">
+        <h2>Контакты</h2>
+        <p>Если у вас есть вопросы, свяжитесь с нами:</p>
+        <form method="post" action="{% url 'contact' %}" class="feedback-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+                {% if form.name.errors %}
+                    <div class="error-message">{{ form.name.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="email">Почта:</label>
+                <input type="email" id="email" name="email" required>
+                {% if form.email.errors %}
+                    <div class="error-message">{{ form.email.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                {% if form.message.errors %}
+                    <div class="error-message">{{ form.message.errors }}</div>
+                {% endif %}
+            </div>
+            <button type="submit" class="button">Отправить</button>
+        </form>
     </div>
-  </body>
-</html>
+</section>
+{% endblock %}
 

@@ -1,0 +1,81 @@
+/* experiments/static/experiments/css/contact.css */
+
+/* Подключение базовых стилей */
+@import url('base.css');
+
+/* Использование красивого шрифта */
+.contact-container {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: 50px auto; /* Центрирование с отступами сверху и снизу */
+    text-align: center;
+}
+
+/* Заголовок страницы контактов */
+.contact-container h2 {
+    font-size: 28px;
+    color: var(--text-dark-color);
+    margin-bottom: 20px;
+}
+
+/* Описание формы */
+.contact-container p {
+    font-size: 18px;
+    color: var(--text-dark-color);
+    margin-bottom: 20px;
+}
+
+/* Форма контактов */
+.feedback-form {
+    text-align: left;
+}
+
+/* Стилизация полей формы */
+.feedback-form .form-group {
+    margin-bottom: 15px;
+}
+
+.feedback-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-dark-color);
+    font-weight: 500;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--button-color);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+    border-color: var(--button-hover-color);
+    outline: none;
+}
+
+/* Кнопка отправки */
+.feedback-form .button {
+    width: 100%;
+    padding: 15px 0;
+    font-size: 16px;
+    border-radius: 50px; /* Полностью закругленные кнопки */
+    margin-top: 10px;
+}
+
+/* Стилизация сообщений об ошибках */
+.error-message {
+    color: #e74c3c; /* Красный цвет для ошибок */
+    font-size: 14px;
+    margin-top: 5px;
+}
+

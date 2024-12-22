@@ -1,57 +1,50 @@
+<!-- experiments/templates/experiments/galaxy_game.html -->
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, width=device-width">
-    
-    <!-- Подключение внешних стилей -->
-    <link rel="stylesheet" href="{% static 'experiments/galaxy_game.css' %}" />
-    <!-- Подключение шрифта из Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400&display=swap" />
-</head>
-<body>
-    <!-- Контейнер для всей страницы -->
-    <div class="rectangle-parent">
-        
-        <!-- Заголовок викторины -->
-        <div class="wrapper">
-            <div class="div">
-                <p class="p">Викторина по планетам</p>
-            </div>
-        </div>
 
-        <!-- Контейнер для вопроса и информации о планете -->
-        <div id="question-container">
-            <!-- Информация о планете -->
-            <div id="planet-info">
-                <p id="planet-name">Планета: Земля</p>
-                <p id="planet-description">Земля — третья планета от Солнца и единственная известная планета, на которой существует жизнь.</p>
-            </div>
-            
-            <!-- Место для отображения вопроса -->
-            <div id="question">
-            </div>
+{% block extra_head %}
+<!-- Подключение стилей для викторины -->
+<link rel="stylesheet" href="{% static 'experiments/css/galaxy_game.css' %}" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<title>Викторина по планетам</title>
+{% endblock %}
 
-            <!-- Контейнер для кнопок ответов -->
-            <div id="answer-buttons">
-            </div>
-        </div>
-
-        <!-- Контейнер для отображения счета -->
-        <div id="score-container">
-            Баллы: <span id="score">0</span>
-        </div>
-
-        <!-- Контейнер для кнопок управления игрой -->
-        <div class="game-buttons">
-            <button id="next-button">Следующий вопрос</button> <!-- Кнопка для перехода к следующему вопросу -->
-            <button id="restart-button">Перезапустить</button> <!-- Кнопка для перезапуска игры -->
-        </div>
+{% block content %}
+<!-- Контейнер для викторины -->
+<div class="quiz-container">
+    <div class="quiz-header">
+        <p>Викторина по планетам</p>
     </div>
+    
+    <div id="planet-info">
+        <h3 id="planet-name">Планета: </h3>
+        <p id="planet-description"></p>
+    </div>
+    <div id="question">Вопрос будет здесь</div>
+    <div id="answer-buttons">
+        <!-- Кнопки ответов будут генерироваться динамически -->
+    </div>
+    <div id="score-container">
+        <p>Счет: <span id="score">0</span></p>
+    </div>
+    <div class="game-buttons">
+        <button id="next-button" class="button" disabled>Следующий вопрос</button>
+        <button id="restart-button" class="button">Перезапустить игру</button>
+    </div>
+</div>
 
-    <!-- Подключение скрипта для викторины -->
-    <script src="{% static 'experiments/galaxy_game.js' %}"></script>
-</body>
-</html>
+<!-- Модальное окно для вывода результатов -->
+<div id="result-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="result-title">Поздравляем!</h2>
+        <p>Вы набрали <span id="final-score">0</span> баллов.</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Подключение скриптов для викторины -->
+<script src="{% static 'experiments/js/galaxy_game.js' %}"></script>
+{% endblock %}
 

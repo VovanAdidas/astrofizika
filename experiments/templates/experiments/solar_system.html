@@ -1,45 +1,40 @@
+<!-- experiments/templates/experiments/solar_system.html -->
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, width=device-width">
-    
-    <!-- Подключение стилей -->
-    <link rel="stylesheet" href="{% static 'experiments/solar_system.css' %}" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400&display=swap" />
-</head>
-<body>
-    <div class="rectangle-parent">
-        <!-- Заголовок путеводителя -->
-        <div class="wrapper">
-            <div class="div">
-                <p class="p">Путеводитель по</p>
-                <p class="p">Солнечной системе</p>
-            </div>
-        </div>
 
-        <!-- Солнечная система с планетами -->
-        <div class="solar-system">
-            <div class="planet" id="mercury" onclick="showInfo('Mercury')"></div>
-            <div class="planet" id="venus" onclick="showInfo('Venus')"></div>
-            <div class="planet" id="earth" onclick="showInfo('Earth')"></div>
-            <div class="planet" id="mars" onclick="showInfo('Mars')"></div>
-            <div class="planet" id="jupiter" onclick="showInfo('Jupiter')"></div>
-            <div class="planet" id="saturn" onclick="showInfo('Saturn')"></div>
-            <div class="planet" id="uranus" onclick="showInfo('Uranus')"></div>
-            <div class="planet" id="neptune" onclick="showInfo('Neptune')"></div>
-        </div>
+{% block extra_head %}
+<!-- Подключение стилей для солнечной системы -->
+<link rel="stylesheet" href="{% static 'experiments/css/solar_system.css' %}" />
+<title>Путеводитель по солнечной системе</title>
+{% endblock %}
 
-        <!-- Информация о планете -->
-        <div id="planet-info" class="planet-info">
-            <h2>Выберите планету</h2>
-            <p>Кликните на планету, чтобы узнать больше о ней.</p>
-        </div>
+{% block content %}
+<!-- Контейнер для страницы солнечной системы -->
+<div class="solar-system-container">
+    <div class="quiz-header">
+        <p>Солнечная система</p>
     </div>
+    
+    <div id="planet-info">
+        <h2>Кликните на планету, чтобы узнать о ней больше.</h2>
+    </div>
+    
+    <div class="solar-system">
+        <!-- Планеты, равномерно распределённые -->
+        <div class="planet planet-mercury" data-planet="Меркурий" tabindex="0" aria-label="Меркурий"></div>
+        <div class="planet planet-venus" data-planet="Венера" tabindex="0" aria-label="Венера"></div>
+        <div class="planet planet-earth" data-planet="Земля" tabindex="0" aria-label="Земля"></div>
+        <div class="planet planet-mars" data-planet="Марс" tabindex="0" aria-label="Марс"></div>
+        <div class="planet planet-jupiter" data-planet="Юпитер" tabindex="0" aria-label="Юпитер"></div>
+        <div class="planet planet-saturn" data-planet="Сатурн" tabindex="0" aria-label="Сатурн"></div>
+        <div class="planet planet-uranus" data-planet="Уран" tabindex="0" aria-label="Уран"></div>
+        <div class="planet planet-neptune" data-planet="Нептун" tabindex="0" aria-label="Нептун"></div>
+    </div>
+</div>
+{% endblock %}
 
-    <!-- Подключение скрипта для планет -->
-    <script src="{% static 'experiments/solar_system.js' %}"></script>
-</body>
-</html>
+{% block extra_js %}
+<!-- Подключение скриптов для солнечной системы -->
+<script src="{% static 'experiments/js/solar_system.js' %}"></script>
+{% endblock %}
 

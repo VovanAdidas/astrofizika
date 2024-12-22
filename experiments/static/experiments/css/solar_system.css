@@ -1,0 +1,124 @@
+/* experiments/static/experiments/css/solar_system.css */
+
+/* Подключение базовых стилей */
+@import url('base.css');
+
+/* Контейнер для солнечной системы */
+.solar-system-container {
+    background-color: #000000; /* Черный фон имитации вселенной */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+    color: var(--text-color);
+}
+
+/* Заголовок */
+.quiz-header p {
+    font-size: 28px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+/* Информация о планете */
+#planet-info {
+    margin-bottom: 20px;
+}
+
+#planet-info h2 {
+    font-size: 22px;
+    color: var(--text-color);
+}
+
+#planet-info p {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+/* Солнечная система */
+.solar-system {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Общие стили для планет */
+.planet {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.planet:hover, .planet:focus {
+    transform: scale(1.2);
+}
+
+/* Цвета для каждой планеты */
+.planet-mercury {
+    background-color: #b0b0b0; /* Серый */
+}
+
+.planet-venus {
+    background-color: #e6c87c; /* Светло-желтый */
+}
+
+.planet-earth {
+    background-color: #2e86c1; /* Синий */
+}
+
+.planet-mars {
+    background-color: #c1440e; /* Красноватый */
+}
+
+.planet-jupiter {
+    background-color: #d1a054; /* Оранжево-коричневый */
+}
+
+.planet-saturn {
+    background-color: #f5c76b; /* Светло-оранжевый */
+}
+
+.planet-uranus {
+    background-color: #a3c1ad; /* Голубовато-зеленый */
+}
+
+.planet-neptune {
+    background-color: #2b65ec; /* Темно-синий */
+}
+
+/* Подписи к планетам */
+.planet::after {
+    content: attr(aria-label);
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .solar-system {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .planet {
+        width: 60px;
+        height: 60px;
+    }
+
+    .planet::after {
+        top: 70px;
+    }
+}
+
